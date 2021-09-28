@@ -1,0 +1,11 @@
+login using a service account that has the correct access, I have chosen Editor in this case for the service account.
+
+#inst_id=5979786702044817547
+#zone=us-central1-a
+
+#to retrieve the total metadata
+gcloud compute instances describe $inst_id --format='json(metadata.items)' --zone $zone
+
+#to retrieve specific key from metadata
+gcloud compute instances describe $inst_id --format='value[](metadata.items.my_key)' --zone $zone
+
